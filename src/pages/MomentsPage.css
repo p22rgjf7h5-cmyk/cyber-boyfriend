@@ -1,0 +1,206 @@
+.moments-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.moments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.moments-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 发布朋友圈 */
+.moment-composer {
+  background: #fff;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.composer-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+.composer-input:focus {
+  border-color: #07b91d;
+}
+
+.composer-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.tool-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.composer-btn {
+  padding: 8px 24px;
+  background: #07b91d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.composer-btn:hover {
+  background: #06a01e;
+}
+
+/* 朋友圈列表 */
+.moments-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 12px 12px 12px;
+}
+
+.moment-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.moment-card.user {
+  background: linear-gradient(135deg, #95ec69 0%, #7ed321 100%);
+  color: #333;
+}
+
+.moment-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.moment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.moment-user-info {
+  flex: 1;
+}
+
+.moment-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #000;
+}
+
+.moment-card.user .moment-user-name {
+  color: #333;
+}
+
+.moment-time {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.moment-content {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 8px 0;
+  color: #000;
+}
+
+.moment-card.user .moment-content {
+  color: #333;
+}
+
+.moment-image {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  margin: 12px 0;
+  object-fit: cover;
+}
+
+.moment-footer {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.like-btn,
+.comment-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.like-btn:hover,
+.comment-btn:hover {
+  color: #07b91d;
+}
+
+.like-btn.liked {
+  color: #f41f19;
+}
+
+@media (max-width: 768px) {
+  .moments-page {
+    height: auto;
+  }
+
+  .moment-card {
+    border-radius: 4px;
+  }
+
+  .moment-image {
+    max-height: 250px;
+  }
+}
