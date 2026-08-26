@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CreateBoyfriend.css';
+import { saveBoyfriend } from '../utils/storage';
 
 const CreateBoyfriend = ({ onBack, onSelect }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const CreateBoyfriend = ({ onBack, onSelect }) => {
     backstory: '',
     traits: []
   });
+  const [error, setError] = useState('');
 
   const personalityOptions = [
     '温柔体贴',
@@ -24,6 +26,7 @@ const CreateBoyfriend = ({ onBack, onSelect }) => {
       ...prev,
       [name]: value
     }));
+    if (error) setError('');
   };
 
   const handleTraitToggle = (trait) => {
@@ -37,9 +40,17 @@ const CreateBoyfriend = ({ onBack, onSelect }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.name.trim()) {
-      onSelect(formData);
+    if (!formData.name.trim()) {
+      setError('请输入名字');
+      return;
     }
+    if (!formData.personality) {
+      setError('请选择性格特征');
+      return;
+    }
+
+    const boyfriend = saveBoyfriend(formData);
+    onSelect(boyfriend);
   };
 
   return (
@@ -51,6 +62,8 @@ const CreateBoyfriend = ({ onBack, onSelect }) => {
       </div>
 
       <form onSubmit={handleSubmit} className="create-form">
+        {error && <div className="error-message">{error}</div>}
+
         <div className="form-group">
           <label>名字 *</label>
           <input
@@ -89,6 +102,7 @@ const CreateBoyfriend = ({ onBack, onSelect }) => {
             onChange={handleChange}
             placeholder="讲述他的故事，越详细越好..."
             rows="5"
+            maxLength="500"
           />
           <span className="char-count">{formData.backstory.length}/500</span>
         </div>
