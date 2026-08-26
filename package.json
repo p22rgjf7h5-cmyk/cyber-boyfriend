@@ -1,0 +1,27 @@
+{
+  "name": "cyber-boyfriend",
+  "version": "1.0.0",
+  "description": "A customizable AI-powered virtual boyfriend app with personality customization",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "react-scripts start"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.4.0",
+    "openai": "^4.0.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "react-router-dom": "^6.14.0"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1",
+    "concurrently": "^8.2.0"
+  }
+}
